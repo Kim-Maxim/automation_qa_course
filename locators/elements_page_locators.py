@@ -2,15 +2,11 @@ from selenium.webdriver.common.by import By
 
 class TextBoxPageLocators:
 
-    # FORM FIELDS
-
     FULL_NAME = (By.CSS_SELECTOR, "input[id='userName']")
     EMAIL = (By.CSS_SELECTOR, "input[id='userEmail']")
     CURRENT_ADDRESS = (By.CSS_SELECTOR, "textarea[id='currentAddress']")
     PERMANENT_ADDRESS = (By.CSS_SELECTOR, "textarea[id='permanentAddress']")
     SUBMIT = (By.CSS_SELECTOR, "button[id='submit']")
-
-    # CREATED FORM
 
     CREATED_FULL_NAME = (By.CSS_SELECTOR, "#output #name")
     CREATED_EMAIL = (By.CSS_SELECTOR, "#output #email")
@@ -32,5 +28,16 @@ class RadioButtonPageLocators:
     NO_RADIO_BUTTON = (By.CSS_SELECTOR, "label[for='noRadio']")
     OUTPUT_RESULT_RADIO_BUTTON = (By.CSS_SELECTOR, "span[class='text-success']")
 
+class WebTablePageLocators:
 
+    ADD_BUTTON = (By.CSS_SELECTOR, "button[id='addNewRecordButton']")
+    FIRSTNAME_INPUT = (By.CSS_SELECTOR, "input[id='firstName']")
+    LASTNAME_INPUT = (By.CSS_SELECTOR, "input[id='lastName']")
+    EMAIL_INPUT = (By.CSS_SELECTOR, "input[id='userEmail']")
+    AGE_INPUT = (By.CSS_SELECTOR, "input[id='age']")
+    SALARY_INPUT = (By.CSS_SELECTOR, "input[id='salary']")
+    DEPARTMENT_INPUT = (By.CSS_SELECTOR, "input[id='department']")
+    SUBMIT = (By.CSS_SELECTOR, "button[id='submit']")
+
+    FULL_PEOPLE_LIST = (By.CSS_SELECTOR, "div[class='rt-tr-group']")
 
