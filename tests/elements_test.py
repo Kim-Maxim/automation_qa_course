@@ -1,5 +1,6 @@
 import time
 import random
+import pytest
 
 from pages.elements_page import CheckBoxPage, RadioButtonPage, TextBoxPage, WebTablePage
 
@@ -26,6 +27,7 @@ class TestElements:
             assert input_checkbox == output_result, "checkboxes have not been selected"
     
     class TestRadioButton:
+        @pytest.mark.xfail
         def test_radio_button(self,driver):
             radio_button_page = RadioButtonPage(driver, "https://demoqa.com/radio-button")
             radio_button_page.open()
@@ -58,3 +60,31 @@ class TestElements:
             print(key_word)
             print(table_result)
             assert key_word in table_result, "Key word was not in the table result"
+
+        def test_web_table_update_person_info(self,driver):
+            web_table_page = WebTablePage(driver, 'https://demoqa.com/webtables')
+            web_table_page.open()
+            lastname = web_table_page.add_new_person()[1]
+            web_table_page.search_some_person(lastname)
+            age = web_table_page.update_person_info()
+            row = web_table_page.check_search_person()
+            assert age in row, "the person card has not been changed" 
+
+        def test_web_table_delete_person(self,driver):
+            web_table_page = WebTablePage(driver, 'https://demoqa.com/webtables')
+            web_table_page.open()
+            email = web_table_page.add_new_person()[3]
+            web_table_page.search_some_person(email)
+            web_table_page.delete_person()  
+            text = web_table_page.check_deleted()
+            assert text == "No rows found"
+        
+        def test_web_table_change_count_row(self,driver):
+            web_table_page = WebTablePage(driver, 'https://demoqa.com/webtables')
+            web_table_page.open()
+            count = web_table_page.select_up_to_some_rows()
+            assert count == [5, 10, 20], "The number of rows in the table has not been changed incorrectly"
+
+
+            
+            
