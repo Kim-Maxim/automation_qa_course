@@ -2,7 +2,7 @@ import time
 import random
 import pytest
 
-from pages.elements_page import ButtonsPage, CheckBoxPage, RadioButtonPage, TextBoxPage, WebTablePage
+from pages.elements_page import ButtonsPage, CheckBoxPage, LinksPage, RadioButtonPage, TextBoxPage, WebTablePage
 
 class TestElements:
     class TestTextBox:
@@ -95,4 +95,17 @@ class TestElements:
             assert double == "You have done a double click", "The double click button was not presed"
             assert right == "You have done a right click", "The right click button was not presed"
             assert click == "You have done a dynamic click", "The dynamic click button was not presed"
-            
+    
+    class TestLinksPage:
+
+        def test_check_link(self, driver):
+            links_page = LinksPage(driver, 'https://demoqa.com/links')
+            links_page.open()
+            href_link, current_url = links_page.check_new_tab_simple_link()
+            assert href_link == current_url, "the link is broken or url is incorrect"
+        
+        def test_broken_link(self,driver):
+            links_page = LinksPage(driver, 'https://demoqa.com/links')
+            links_page.open()
+            responce_code = links_page.check_broken_link('https://demoqa.com/bad-request')
+            assert responce_code == 400, "the link works or statuscode in 400"
