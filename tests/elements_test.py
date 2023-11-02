@@ -2,7 +2,7 @@ import time
 import random
 import pytest
 
-from pages.elements_page import ButtonsPage, CheckBoxPage, LinksPage, RadioButtonPage, TextBoxPage, WebTablePage
+from pages.elements_page import ButtonsPage, CheckBoxPage, LinksPage, RadioButtonPage, TextBoxPage, UploadAndDownloadPage, WebTablePage
 
 class TestElements:
     class TestTextBox:
@@ -109,3 +109,16 @@ class TestElements:
             links_page.open()
             responce_code = links_page.check_broken_link('https://demoqa.com/bad-request')
             assert responce_code == 400, "the link works or statuscode in 400"
+
+    class TestUploadAndDownload:
+
+        def test_upload_file(self, driver):
+            upload_and_download_page = UploadAndDownloadPage(driver, 'https://demoqa.com/upload-download')
+            upload_and_download_page.open()
+            file_name, result = upload_and_download_page.upload_file()
+            assert file_name == result
+                
+        def test_download_file(self, driver):
+            upload_and_download_page = UploadAndDownloadPage(driver, 'https://demoqa.com/upload-download')
+            upload_and_download_page.open()
+            pass
