@@ -1,5 +1,5 @@
 import pytest
-from pages.alerts_frame_windows_page import AlertsPage, BrowserWindowsPage, FramesPage
+from pages.alerts_frame_windows_page import AlertsPage, BrowserWindowsPage, FramesPage, NestedFramesPage
 
 
 class TestAlertsFrameWindow:
@@ -45,7 +45,6 @@ class TestAlertsFrameWindow:
             assert alert_text == f"You entered {text}", "Allert did not show up"
 
     class TestFramesPage:
-        @pytest.mark.smoke
         def test_frames(self, driver):
             frame_page = FramesPage(driver, 'https://demoqa.com/frames')
             frame_page.open()
@@ -53,4 +52,12 @@ class TestAlertsFrameWindow:
             result_frame2 = frame_page.check_frame('frame2')
             assert result_frame1 == ['This is a sample page', '500px', '350px'], 'The frame does not exist'
             assert result_frame2 == ['This is a sample page', '100px', '100px'], 'The frame does not exist'
-            
+
+    class TestNestedFramesPage:
+        @pytest.mark.smoke  
+        def test_nested_frames(self, driver):
+            nested_frame_page = NestedFramesPage(driver, 'https://demoqa.com/nestedframes')
+            nested_frame_page.open()
+            parent_text, child_text = nested_frame_page.check_nested_frame()
+            assert parent_text == "Parent frame", "Nested frames do not exist"
+            assert child_text == "Child Iframe", "Nested frames do not exist"
