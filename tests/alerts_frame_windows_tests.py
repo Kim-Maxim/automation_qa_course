@@ -65,7 +65,7 @@ class TestAlertsFrameWindow:
     
     
     class TestModalDialogs:
-        @pytest.mark.smoke
+        
         def test_modal_dialogs(self, driver):
             modal_dialogs_page = ModalDialogsPage(driver, 'https://demoqa.com/modal-dialogs')
             modal_dialogs_page.open()
