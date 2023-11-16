@@ -1,6 +1,6 @@
 import pytest
 
-from pages.interactions_page import SelectablePage, SortablePage
+from pages.interactions_page import ResizablePage, SelectablePage, SortablePage
 
 class TestInteractions:
     class TestSortablePage:
@@ -15,7 +15,7 @@ class TestInteractions:
 
     class TestSelectablePage:
 
-        @pytest.mark.smoke
+        
         def test_selectable(self, driver):
             selectable_page = SelectablePage(driver, 'https://demoqa.com/selectable')
             selectable_page.open()
@@ -23,4 +23,15 @@ class TestInteractions:
             item_grid = selectable_page.selected_grid_item()
             assert len(item_list) > 0, "No elements were selected"
             assert len(item_grid) > 0, "No elements were selected"
+
+    class TestRssizablePage:
+        @pytest.mark.smoke
+        def test_resizable(self, driver):
+            resizable_page = ResizablePage(driver, 'https://demoqa.com/resizable')
+            resizable_page.open()
+            max_box, min_box = resizable_page.change_size_resizable_box()
+            # max_resize, min_resize = resizable_page.change_size_resizable()
+            assert max_box == ('width: 500px; height: 300px;', 'width: 500px; height: 300px;'), "It is not OK"
+            assert min_box == ('width: 150px; height: 150px;', 'width: 150px; height: 150px;'), "It is not OK"
+            # print(max_resize, min_resize)
             
