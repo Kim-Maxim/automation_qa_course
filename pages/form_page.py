@@ -13,25 +13,25 @@ class FormPage(BasePage):
 
     @allure.step('fill in all fields')
     def fill_form_fields(self):
+        
         person = next(generated_person())
         file_name, path = generated_file()
-        self.remove_footer()
         self.element_is_visible(self.locators.FIRST_NAME).send_keys(person.firstname)
         self.element_is_visible(self.locators.LAST_NAME).send_keys(person.lastname)
         self.element_is_visible(self.locators.EMAIL).send_keys(person.email)
-        self.element_is_visible(self.locators.GENDER).click()
+        self.go_to_element_and_click(self.element_is_visible(self.locators.GENDER))
         self.element_is_visible(self.locators.MOBILE).send_keys(person.mobile)
         self.element_is_visible(self.locators.SUBJECT).send_keys("Math")
         self.element_is_visible(self.locators.SUBJECT).send_keys(Keys.RETURN)
-        self.element_is_visible(self.locators.HOBBIES).click()
+        self.go_to_element_and_click(self.element_is_visible(self.locators.HOBBIES))
         self.element_is_present(self.locators.FILE_INPUT).send_keys(path)
         os.remove(path)
         self.element_is_visible(self.locators.CURRENT_ADDRESS).send_keys(person.current_address)
-        self.element_is_visible(self.locators.SELECT_STATE).click()
+        self.go_to_element_and_click(self.element_is_visible(self.locators.SELECT_STATE))
         self.element_is_visible(self.locators.STATE_INPUT).send_keys(Keys.RETURN)
-        self.element_is_visible(self.locators.SELECT_CITY).click()
-        self.element_is_visible(self.locators.CITY_INPUT).send_keys(Keys.RETURN)
-        self.element_is_visible(self.locators.SUBMIT).click()
+        self.go_to_element_and_click(self.element_is_visible(self.locators.SELECT_CITY))
+        # self.element_is_visible(self.locators.CITY_INPUT).send_keys(Keys.RETURN)
+        self.go_to_element_and_click(self.element_is_visible(self.locators.SUBMIT))
         return person
 
     @allure.step('get form result')
