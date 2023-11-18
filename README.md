@@ -1,6 +1,12 @@
 <!-- Команды для запуска виртуального окружения env -->
 py -m venv env - добавить окружение в локальную папку
 .\env\Scripts\Activate.ps1 - активировать окружение
+deactivate - деактивация окружения
+
+<!-- Команды для установки необходимых модулей -->
+pip install pytest
+pip install selenium
+pip install allure-pytest
 
 <!-- Команды для работы с requirements.txt -->
 pip freeze > requirements.txt - замораживает все зависимости в файл.txt
