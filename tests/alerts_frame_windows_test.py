@@ -71,7 +71,7 @@ class TestAlertsFrameWindow:
             result_frame1 = frame_page.check_frame('frame1')
             result_frame2 = frame_page.check_frame('frame2')
             assert result_frame1 == ['This is a sample page', '500px', '350px'], 'The frame does not exist'
-            assert result_frame2 == ['This is a sample pag', '100px', '100px'], 'The frame does not exist'
+            assert result_frame2 == ['This is a sample page', '100px', '100px'], 'The frame does not exist'
 
     @allure.feature('Nested Page')
     class TestNestedFramesPage:
