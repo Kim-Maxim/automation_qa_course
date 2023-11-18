@@ -9,7 +9,8 @@ class TestWidgets:
 
     @allure.feature('Accordian Page')
     class TestAccordianPage:
-       
+        
+        @pytest.mark.smoke
         @allure.title('Check accordian widget')
         def test_accordian(self, driver):
             accordian_page = AccordianPage(driver, 'https://demoqa.com/accordian')
@@ -24,6 +25,7 @@ class TestWidgets:
     @allure.feature('Autocomplete page')
     class TestAutoCompletePage:
 
+        @pytest.mark.smoke
         @allure.title('Check the autocomplete is filled')
         def test_fill_multi_autocomplete(self, driver):
             autocomplete_page = AutoCompletePage(driver, 'https://demoqa.com/auto-complete')
@@ -32,6 +34,7 @@ class TestWidgets:
             colors_result = autocomplete_page.check_color_in_multi()
             assert colors == colors_result, 'The added colors are missing in the input'
 
+        @pytest.mark.smoke
         @allure.title('Check deletions from the multi autocomplete')
         def test_remove_value_from_multi(self, driver):
             autocomplete_page = AutoCompletePage(driver, 'https://demoqa.com/auto-complete')
@@ -40,6 +43,7 @@ class TestWidgets:
             count_value_before, count_value_after = autocomplete_page.remove_value_from_multi()
             assert count_value_before != count_value_after, 'Value was not deleted'
 
+        @pytest.mark.smoke
         @allure.title('Check deletions from the single autocomplete')        
         def test_fill_single_autocomplete(self, driver):
             autocomplete_page = AutoCompletePage(driver, 'https://demoqa.com/auto-complete')
@@ -50,6 +54,8 @@ class TestWidgets:
 
     @allure.feature('Date Picker Page')
     class TestDatePickerPage:
+
+        @pytest.mark.smoke
         @allure.title('Check change date')
         def test_change_date(self, driver):
             date_picker_page = DatePickerPage(driver, 'https://demoqa.com/date-picker')
@@ -57,6 +63,7 @@ class TestWidgets:
             value_date_before, value_date_after = date_picker_page.select_date()
             assert value_date_before != value_date_after, "The date have not been changed"
 
+        @pytest.mark.smoke
         @allure.title('Check change date and time')
         def test_change_date_and_time(self, driver):
             date_picker_page = DatePickerPage(driver, 'https://demoqa.com/date-picker')
@@ -66,7 +73,8 @@ class TestWidgets:
 
     @allure.feature('Slider Page')
     class TestSliderPage:
-        
+
+        @pytest.mark.smoke    
         @allure.title('Check moved slider')
         def test_progress_bar(self, driver):
             slider = SliderPage(driver, 'https://demoqa.com/slider')
@@ -76,7 +84,8 @@ class TestWidgets:
     
     @allure.feature('Progress Bar Page')
     class TestProgressBarPage:
-        
+
+        @pytest.mark.smoke       
         @allure.title('Check changed progress bar')
         def test_progress_bar(self, driver):
             progress_bar = ProgressBarPage(driver, 'https://demoqa.com/progress-bar')
@@ -87,6 +96,7 @@ class TestWidgets:
     @allure.feature('Test Tabs Page')
     class TestTabsPage:
 
+        @pytest.mark.smoke
         @allure.title('Check switched tabs')        
         def test_tabs(self, driver):
             tabs = TabsPage(driver, 'https://demoqa.com/tabs')
@@ -103,6 +113,7 @@ class TestWidgets:
     @allure.feature('Tool Tips')
     class TestToolTips:
 
+        @pytest.mark.smoke
         @allure.title('Check tool tips')        
         def test_tool_tips(self, driver):
             tool_tips_page = ToolTipsPage(driver, "https://demoqa.com/tool-tips")
@@ -115,7 +126,8 @@ class TestWidgets:
 
     @allure.feature('Menu Page')
     class TestMenuPage:
-
+        
+        @pytest.mark.smoke
         @allure.title('Check all of the menu items')  
         def test_menu_items(self, driver):
             menu_page = MenuPage(driver, "https://demoqa.com/menu")

@@ -9,6 +9,7 @@ class TestAlertsFrameWindow:
     @allure.feature('Browser Windows')
     class TestBrowserWindows:
 
+        @pytest.mark.smoke
         @allure.title('Checking the opening of a new tab')
         def test_new_tab(self, driver):
             new_tab_page = BrowserWindowsPage(driver, 'https://demoqa.com/browser-windows')
@@ -16,6 +17,7 @@ class TestAlertsFrameWindow:
             text_result = new_tab_page.check_opened_new_tab()
             assert text_result == "This is a sample page", 'The new window has not opened or an incorrect window'
         
+        @pytest.mark.smoke
         @allure.title('Checking the opening of a new window')
         def test_new_window(self, driver):
             new_window_page = BrowserWindowsPage(driver, 'https://demoqa.com/browser-windows')
@@ -25,14 +27,16 @@ class TestAlertsFrameWindow:
 
     @allure.feature('Alerts Page')
     class TestAlerts:
-        
+
+        @pytest.mark.smoke       
         @allure.title('Checking the opening of an alert')
         def test_see_alert(self, driver):
             alerts_page = AlertsPage(driver, 'https://demoqa.com/alerts')
             alerts_page.open()
             alert_text = alerts_page.check_see_alert()
             assert alert_text == "You clicked a button", "The new window has not opened or an incorrect window"
-        
+
+        @pytest.mark.smoke       
         @allure.title('Checking the opening of the alert after 5 seconds')      
         def test_see_alert(self, driver):
             alerts_page = AlertsPage(driver, 'https://demoqa.com/alerts')
@@ -40,13 +44,15 @@ class TestAlertsFrameWindow:
             alert_text = alerts_page.check_alert_appear_5_sec()
             assert alert_text == "This alert appeared after 5 seconds", "Allert did not show up"
 
+        @pytest.mark.smoke
         @allure.title('Checking the opening of the alert with confirm')
         def test_confirm_alert(self, driver):
             alerts_page = AlertsPage(driver, 'https://demoqa.com/alerts')
             alerts_page.open()
             alert_text = alerts_page.check_confirm_alert()
             assert alert_text == "You selected Ok", "Allert did not show up"
-
+        
+        @pytest.mark.smoke
         @allure.title('Checking the opening of the alert with prompt')
         def test_promt_alert(self, driver):
             alerts_page = AlertsPage(driver, 'https://demoqa.com/alerts')
@@ -57,6 +63,7 @@ class TestAlertsFrameWindow:
     @allure.feature('Frame Page')
     class TestFramesPage:
         
+        @pytest.mark.smoke
         @allure.title('Check the page with frames')
         def test_frames(self, driver):
             frame_page = FramesPage(driver, 'https://demoqa.com/frames')
@@ -69,6 +76,7 @@ class TestAlertsFrameWindow:
     @allure.feature('Nested Page')
     class TestNestedFramesPage:
         
+        @pytest.mark.smoke
         @allure.title('Check the page with nested frames')
         def test_nested_frames(self, driver):
             nested_frame_page = NestedFramesPage(driver, 'https://demoqa.com/nestedframes')
@@ -79,7 +87,8 @@ class TestAlertsFrameWindow:
     
     @allure.feature('Modal Dialog Page')
     class TestModalDialogs:
-        
+
+        @pytest.mark.smoke     
         @allure.title('Check the page with modal dialogs')
         def test_modal_dialogs(self, driver):
             modal_dialogs_page = ModalDialogsPage(driver, 'https://demoqa.com/modal-dialogs')

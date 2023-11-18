@@ -1,6 +1,7 @@
 import random
 import time
 import allure
+import pytest
 
 from pages.base_page import BasePage
 from locators.alerts_frame_windows_locators import AlertsPageLocators, BrowserWindowsPageLocators, FramesPageLocators, ModalDialogsPageLocators, NestedFramesPageLocators
@@ -10,6 +11,7 @@ class BrowserWindowsPage(BasePage):
 
     locators = BrowserWindowsPageLocators()
 
+    @pytest.mark.smoke
     @allure.step('check opened new tab ')
     def check_opened_new_tab(self):
         self.element_is_visible(self.locators.NEW_TAB_BUTTON).click()
@@ -17,6 +19,7 @@ class BrowserWindowsPage(BasePage):
         text_title = self.element_is_present(self.locators.TITLE_NEW).text
         return text_title
     
+    @pytest.mark.smoke
     @allure.step('check opened new window')
     def check_opened_new_window(self):
         self.element_is_visible(self.locators.NEW_WINDOW_BUTTON).click()
@@ -28,6 +31,7 @@ class AlertsPage(BasePage):
 
     locators = AlertsPageLocators()
 
+    @pytest.mark.smoke
     @allure.step('get text from alert')
     def check_see_alert(self):
         self.element_is_visible(self.locators.SEE_ALERT_BUTTON).click()

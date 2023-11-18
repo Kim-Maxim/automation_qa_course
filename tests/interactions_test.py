@@ -9,6 +9,7 @@ class TestInteractions:
     @allure.feature('Sortable Page')
     class TestSortablePage:
         
+        @pytest.mark.smoke
         @allure.title('Check changed sortable list and grid')
         def test_sortable(self, driver):
             sortable_page = SortablePage(driver, 'https://demoqa.com/sortable')
@@ -20,7 +21,8 @@ class TestInteractions:
 
     @allure.feature('Selectable Page')
     class TestSelectablePage:
-
+        
+        @pytest.mark.smoke
         @allure.title('Check changed selectable list and grid')
         def test_selectable(self, driver):
             selectable_page = SelectablePage(driver, 'https://demoqa.com/selectable')
@@ -32,6 +34,8 @@ class TestInteractions:
 
     @allure.feature('Resizable Page')
     class TestRssizablePage:
+
+        @pytest.mark.smoke
         @allure.title('Check changed resizable boxes')
         def test_resizable(self, driver):
             resizable_page = ResizablePage(driver, 'https://demoqa.com/resizable')
