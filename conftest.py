@@ -9,6 +9,7 @@ from selenium.webdriver.chrome.options import Options
 def driver():
     options = Options()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    options.page_load_strategy = 'eager'
     driver = webdriver.Chrome(options=options)
     driver.maximize_window()
     yield driver
