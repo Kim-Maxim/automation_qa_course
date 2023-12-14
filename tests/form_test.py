@@ -4,10 +4,11 @@ import pytest
 from pages.form_page import FormPage
 
 @allure.severity(allure.severity_level.BLOCKER)
+@allure.parent_suite('Tools')
 @allure.suite('Forms')
 class TestForm:
 
-    @allure.feature('FormPage')
+    @allure.sub_suite('FormPage')
     class TestFormPage:
 
         @pytest.mark.smoke

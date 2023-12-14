@@ -4,10 +4,11 @@ import allure
 from pages.interactions_page import DraggablePage, DroppablePage, ResizablePage, SelectablePage, SortablePage
 
 @allure.severity(allure.severity_level.BLOCKER)
+@allure.parent_suite('Tools')
 @allure.suite('Interactions')
 class TestInteractions:
 
-    @allure.feature('Sortable Page')
+    @allure.sub_suite('Sortable Page')
     class TestSortablePage:
         
         @pytest.mark.smoke
@@ -20,7 +21,7 @@ class TestInteractions:
             assert list_before != list_after, "The order of the list has not been changed"
             assert grid_before != grid_after, "The order of the list has not been changed"
 
-    @allure.feature('Selectable Page')
+    @allure.sub_suite('Selectable Page')
     class TestSelectablePage:
         
         @pytest.mark.smoke
@@ -33,7 +34,7 @@ class TestInteractions:
             assert len(item_list) > 0, "No elements were selected"
             assert len(item_grid) > 0, "No elements were selected"
 
-    @allure.feature('Resizable Page')
+    @allure.sub_suite('Resizable Page')
     class TestResizablePage:
 
         @pytest.mark.smoke
@@ -48,7 +49,7 @@ class TestInteractions:
             print(max_resize)
             print(min_resize)
 
-    @allure.feature('Droppable Page')
+    @allure.sub_suite('Droppable Page')
     class TestDroppablePage:
 
         @pytest.mark.smoke
@@ -89,7 +90,7 @@ class TestInteractions:
             assert will_after_move != will_after_revert, 'the elements has not reverted'
             assert not_will_after_move == not_will_after_revert, 'the elements has  reverted'
 
-    @allure.feature('Draggable Page')
+    @allure.sub_suite('Draggable Page')
     class TestDraggablePage:
 
         @pytest.mark.smoke

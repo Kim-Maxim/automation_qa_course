@@ -4,10 +4,11 @@ import allure
 from pages.alerts_frame_windows_page import AlertsPage, BrowserWindowsPage, FramesPage, ModalDialogsPage, NestedFramesPage
 
 @allure.severity(allure.severity_level.BLOCKER)
+@allure.parent_suite('Tools')
 @allure.suite('Alerts, Frame & Windows')
 class TestAlertsFrameWindow:
 
-    @allure.feature('Browser Windows')
+    @allure.sub_suite('Browser Windows')
     class TestBrowserWindows:
 
         @pytest.mark.smoke
@@ -26,7 +27,7 @@ class TestAlertsFrameWindow:
             text_result = new_window_page.check_opened_new_window()
             assert text_result == "This is a sample page", 'The new window has not opened or an incorrect window'
 
-    @allure.feature('Alerts Page')
+    @allure.sub_suite('Alerts Page')
     class TestAlerts:
 
         @pytest.mark.smoke       
@@ -61,7 +62,7 @@ class TestAlertsFrameWindow:
             text, alert_text = alerts_page.check_prompt_alert()
             assert alert_text == f"You entered {text}", "Allert did not show up"
 
-    @allure.feature('Frame Page')
+    @allure.sub_suite('Frame Page')
     class TestFramesPage:
         
         @pytest.mark.smoke
@@ -74,7 +75,7 @@ class TestAlertsFrameWindow:
             assert result_frame1 == ['This is a sample page', '500px', '350px'], 'The frame does not exist'
             assert result_frame2 == ['This is a sample page', '100px', '100px'], 'The frame does not exist'
 
-    @allure.feature('Nested Page')
+    @allure.sub_suite('Nested Page')
     class TestNestedFramesPage:
         
         @pytest.mark.smoke
@@ -86,7 +87,7 @@ class TestAlertsFrameWindow:
             assert parent_text == "Parent frame", "Nested frames do not exist"
             assert child_text == "Child Iframe", "Nested frames do not exist"
     
-    @allure.feature('Modal Dialog Page')
+    @allure.sub_suite('Modal Dialog Page')
     class TestModalDialogs:
 
         @pytest.mark.smoke     

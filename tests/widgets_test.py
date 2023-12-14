@@ -5,10 +5,11 @@ import allure
 from pages.widgets_page import AccordianPage, AutoCompletePage, DatePickerPage, MenuPage, ProgressBarPage, SliderPage, TabsPage, ToolTipsPage
 
 @allure.severity(allure.severity_level.BLOCKER)
+@allure.parent_suite('Tools')
 @allure.suite('Widgets')
 class TestWidgets:
 
-    @allure.feature('Accordian Page')
+    @allure.sub_suite('Accordian Page')
     class TestAccordianPage:
         
         @pytest.mark.smoke
@@ -23,7 +24,7 @@ class TestWidgets:
             assert second_title == "Where does it come from?" and second_content > 0, 'Incorrect title or missing text'
             assert third_title == "Why do we use it?" and third_content > 0, 'Incorrect title or missing text'
 
-    @allure.feature('Autocomplete page')
+    @allure.sub_suite('Autocomplete page')
     class TestAutoCompletePage:
 
         @pytest.mark.smoke
@@ -53,7 +54,7 @@ class TestWidgets:
             color_result = autocomplete_page.check_color_in_single()
             assert color == color_result, 'The added colors are missing in the input'
 
-    @allure.feature('Date Picker Page')
+    @allure.sub_suite('Date Picker Page')
     class TestDatePickerPage:
 
         @pytest.mark.smoke
@@ -72,7 +73,7 @@ class TestWidgets:
             value_date_before, value_date_after = date_picker_page.select_date_and_time()
             assert value_date_before != value_date_after, "The date and time have not been changed"
 
-    @allure.feature('Slider Page')
+    @allure.sub_suite('Slider Page')
     class TestSliderPage:
 
         @pytest.mark.smoke    
@@ -83,7 +84,7 @@ class TestWidgets:
             before, after = slider.change_slider_value()
             assert before != after, "The slider value has not been changed"
     
-    @allure.feature('Progress Bar Page')
+    @allure.sub_suite('Progress Bar Page')
     class TestProgressBarPage:
 
         @pytest.mark.smoke       
@@ -94,7 +95,7 @@ class TestWidgets:
             before, after = progress_bar.change_progress_bar_value()
             assert before != after, "The progress bar value has not been changed"
 
-    @allure.feature('Test Tabs Page')
+    @allure.sub_suite('Test Tabs Page')
     class TestTabsPage:
 
         @pytest.mark.smoke
@@ -111,7 +112,7 @@ class TestWidgets:
             assert use_button == 'Use' and use_content != 0, 'The tab was not pressed or the text is missing'
             # assert more_button == 'More' and more_content != 0, 'The tab was not pressed or the text is missing'
 
-    @allure.feature('Tool Tips')
+    @allure.sub_suite('Tool Tips')
     class TestToolTips:
 
         @pytest.mark.smoke
@@ -125,7 +126,7 @@ class TestWidgets:
             assert contrary_text == "You hovered over the Contrary", "hover missimg or incorrect content"
             assert section_text == "You hovered over the 1.10.32", "hover missimg or incorrect content"
 
-    @allure.feature('Menu Page')
+    @allure.sub_suite('Menu Page')
     class TestMenuPage:
         
         @pytest.mark.smoke

@@ -6,10 +6,11 @@ import allure
 from pages.elements_page import ButtonsPage, CheckBoxPage, DynamicPropertiesPage, LinksPage, RadioButtonPage, TextBoxPage, UploadAndDownloadPage, WebTablePage
 
 @allure.severity(allure.severity_level.BLOCKER)
+@allure.parent_suite('Tools')
 @allure.suite('Elements')
 class TestElements:
 
-    @allure.feature('TextBox')
+    @allure.sub_suite('TextBox')
     class TestTextBox:
         
         @pytest.mark.smoke
@@ -24,7 +25,7 @@ class TestElements:
             assert current_address == output_current_address, "the current_address does not match"
             assert permanent_address == output_permanent_address, "the permanent_address does not match" 
     
-    @allure.feature('CheckBox')
+    @allure.sub_suite('CheckBox')
     class TestCheckBox:
 
         @pytest.mark.smoke
@@ -38,7 +39,7 @@ class TestElements:
             output_result = check_box_page.get_output_result()
             assert input_checkbox == output_result, "checkboxes have not been selected"
     
-    @allure.feature('RadioButton')
+    @allure.sub_suite('RadioButton')
     class TestRadioButton:
 
         @allure.title('Check RadioButton')
@@ -56,7 +57,7 @@ class TestElements:
             assert output_impressive == 'Impressive', "'Impressive' have not been selected"
             # assert output_no == 'No', "'No' have not been selected"
     
-    @allure.feature('WebTable')
+    @allure.sub_suite('WebTable')
     class TestWebTable:
         @pytest.mark.smoke
         @allure.title('Сheck to add a person to the table')
@@ -111,7 +112,7 @@ class TestElements:
             count = web_table_page.select_up_to_some_rows()
             assert count == [5, 10, 20], "The number of rows in the table has not been changed incorrectly"
     
-    @allure.feature('Buttons page')
+    @allure.sub_suite('Buttons page')
     class TestButtonPage:
 
         @pytest.mark.smoke
@@ -126,7 +127,7 @@ class TestElements:
             assert right == "You have done a right click", "The right click button was not presed"
             assert click == "You have done a dynamic click", "The dynamic click button was not presed"
     
-    @allure.feature('Links page')
+    @allure.sub_suite('Links page')
     class TestLinksPage:
 
         @pytest.mark.smoke
@@ -145,7 +146,7 @@ class TestElements:
             responce_code = links_page.check_broken_link('https://demoqa.com/bad-request')
             assert responce_code == 400, "the link works or statuscode in 400"
 
-    @allure.feature('Upload and Download page')
+    @allure.sub_suite('Upload and Download page')
     class TestUploadAndDownload:
         
         @pytest.mark.smoke
@@ -164,7 +165,7 @@ class TestElements:
             check = upload_and_download_page.download_file()
             assert check is True, "the file has not been downloaded"
     
-    @allure.feature('Dynamic properties page')
+    @allure.sub_suite('Dynamic properties page')
     class TestDynamicPropertiesPage:
         
         @pytest.mark.smoke
