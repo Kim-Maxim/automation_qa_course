@@ -3,6 +3,7 @@ import allure
 
 from pages.interactions_page import DraggablePage, DroppablePage, ResizablePage, SelectablePage, SortablePage
 
+@allure.severity(allure.severity_level.BLOCKER)
 @allure.suite('Interactions')
 class TestInteractions:
 

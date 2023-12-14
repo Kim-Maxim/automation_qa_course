@@ -3,7 +3,7 @@ import pytest
 
 from pages.form_page import FormPage
 
-
+@allure.severity(allure.severity_level.BLOCKER)
 @allure.suite('Forms')
 class TestForm:
 

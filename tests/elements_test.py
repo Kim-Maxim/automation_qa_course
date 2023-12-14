@@ -5,6 +5,7 @@ import allure
 
 from pages.elements_page import ButtonsPage, CheckBoxPage, DynamicPropertiesPage, LinksPage, RadioButtonPage, TextBoxPage, UploadAndDownloadPage, WebTablePage
 
+@allure.severity(allure.severity_level.BLOCKER)
 @allure.suite('Elements')
 class TestElements:
 

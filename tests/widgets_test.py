@@ -4,6 +4,7 @@ import allure
 
 from pages.widgets_page import AccordianPage, AutoCompletePage, DatePickerPage, MenuPage, ProgressBarPage, SliderPage, TabsPage, ToolTipsPage
 
+@allure.severity(allure.severity_level.BLOCKER)
 @allure.suite('Widgets')
 class TestWidgets:
 

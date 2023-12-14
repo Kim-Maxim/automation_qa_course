@@ -3,6 +3,7 @@ import allure
 
 from pages.alerts_frame_windows_page import AlertsPage, BrowserWindowsPage, FramesPage, ModalDialogsPage, NestedFramesPage
 
+@allure.severity(allure.severity_level.BLOCKER)
 @allure.suite('Alerts, Frame & Windows')
 class TestAlertsFrameWindow:
 
