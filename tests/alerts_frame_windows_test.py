@@ -48,7 +48,7 @@ class TestAlertsFrameWindow:
 
         @pytest.mark.smoke
         @allure.title("Checking the opening of the alert after 5 seconds")
-        def test_see_alert(self, driver):
+        def test_see_alert_appear_5_sec(self, driver):
             alerts_page = AlertsPage(driver, "https://demoqa.com/alerts")
             alerts_page.open()
             alert_text = alerts_page.check_alert_appear_5_sec()

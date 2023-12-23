@@ -40,7 +40,7 @@ class AlertsPage(BasePage):
     @allure.step("check alert appear after 5 sec")
     def check_alert_appear_5_sec(self):
         self.element_is_visible(self.locators.APPEAR_ALERT_BUTTON_5_SEC_BUTTON).click()
-        time.sleep(6)
+        time.sleep(5.5)
         alert_window = self.driver.switch_to.alert
         return alert_window.text
 

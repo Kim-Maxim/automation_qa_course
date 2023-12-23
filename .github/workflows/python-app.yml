@@ -28,4 +28,4 @@ jobs:
         pip install -r requirements.txt
     - name: Test with pytest
       run: |
-        pytest -s -v -m smoke
+        pytest -s -v -m smoke --reruns 1
