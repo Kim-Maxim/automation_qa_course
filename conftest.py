@@ -15,7 +15,7 @@ def driver():
     chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
     chrome_options.page_load_strategy = "eager"
     driver = webdriver.Chrome(options=chrome_options)
-    driver.maximize_window()
+    driver.set_window_size(1920, 1080)
     yield driver
     attach = driver.get_screenshot_as_png()
     allure.attach(
