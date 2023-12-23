@@ -4,13 +4,7 @@ import allure
 import pytest
 
 from pages.base_page import BasePage
-from locators.alerts_frame_windows_locators import (
-    AlertsPageLocators,
-    BrowserWindowsPageLocators,
-    FramesPageLocators,
-    ModalDialogsPageLocators,
-    NestedFramesPageLocators,
-)
+from locators.alerts_frame_windows_locators import *
 
 
 class BrowserWindowsPage(BasePage):

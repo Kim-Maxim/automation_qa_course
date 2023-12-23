@@ -2,19 +2,9 @@ import os
 import random
 import requests
 import base64
-import time
 import allure
 
-from locators.elements_page_locators import (
-    ButtonsPageLocators,
-    CheckBoxPageLocators,
-    DynamicPropertiesPageLocators,
-    LinksPageLocators,
-    RadioButtonPageLocators,
-    TextBoxPageLocators,
-    UploadAndDownloadPageLocators,
-    WebTablePageLocators,
-)
+from locators.elements_page_locators import *
 from pages.base_page import BasePage
 from generator.generator import generated_file, generated_person
 from selenium.webdriver.common.by import By

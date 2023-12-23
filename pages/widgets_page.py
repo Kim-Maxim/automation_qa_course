@@ -4,16 +4,7 @@ import allure
 
 from generator.generator import generated_color, generated_date
 from pages.base_page import BasePage
-from locators.widgets_page_locators import (
-    AccordianPageLocators,
-    AutoCompletePageLocators,
-    DatePickerPageLocators,
-    MenuPageLocators,
-    ProgressBarPageLocators,
-    SliderPageLocators,
-    TabsPageLocators,
-    ToolTipsPageLocators,
-)
+from locators.widgets_page_locators import *
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import Keys
 from selenium.webdriver.support.select import Select

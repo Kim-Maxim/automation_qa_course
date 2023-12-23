@@ -1,13 +1,7 @@
 import pytest
 import allure
 
-from pages.interactions_page import (
-    DraggablePage,
-    DroppablePage,
-    ResizablePage,
-    SelectablePage,
-    SortablePage,
-)
+from pages.interactions_page import *
 
 
 @allure.severity(allure.severity_level.BLOCKER)
@@ -59,8 +53,6 @@ class TestInteractions:
                 "width: 150px; height: 150px;",
                 "width: 150px; height: 150px;",
             ), "It is not OK"
-            print(max_resize)
-            print(min_resize)
 
     @allure.sub_suite("Droppable Page")
     class TestDroppablePage:

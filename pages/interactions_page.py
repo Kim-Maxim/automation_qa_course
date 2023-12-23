@@ -4,13 +4,7 @@ import re
 import allure
 
 from pages.base_page import BasePage
-from locators.interactions_locators import (
-    DraggablePageLocators,
-    DroppablePageLocators,
-    ResizablePageLocators,
-    SelectablePageLocators,
-    SortablePageLocators,
-)
+from locators.interactions_locators import *
 
 
 class SortablePage(BasePage):

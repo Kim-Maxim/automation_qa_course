@@ -1,17 +1,7 @@
-import time
 import pytest
 import allure
 
-from pages.widgets_page import (
-    AccordianPage,
-    AutoCompletePage,
-    DatePickerPage,
-    MenuPage,
-    ProgressBarPage,
-    SliderPage,
-    TabsPage,
-    ToolTipsPage,
-)
+from pages.widgets_page import *
 
 
 @allure.severity(allure.severity_level.BLOCKER)

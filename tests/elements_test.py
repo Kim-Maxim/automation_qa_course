@@ -1,18 +1,8 @@
-import time
 import random
 import pytest
 import allure
 
-from pages.elements_page import (
-    ButtonsPage,
-    CheckBoxPage,
-    DynamicPropertiesPage,
-    LinksPage,
-    RadioButtonPage,
-    TextBoxPage,
-    UploadAndDownloadPage,
-    WebTablePage,
-)
+from pages.elements_page import *
 
 
 @allure.severity(allure.severity_level.BLOCKER)

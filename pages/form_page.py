@@ -1,8 +1,7 @@
 import os
-
 import allure
-from selenium.webdriver import Keys
 
+from selenium.webdriver import Keys
 from generator.generator import generated_person, generated_file
 from locators.form_page_locators import FormPageLocators
 from pages.base_page import BasePage

@@ -1,13 +1,7 @@
 import pytest
 import allure
 
-from pages.alerts_frame_windows_page import (
-    AlertsPage,
-    BrowserWindowsPage,
-    FramesPage,
-    ModalDialogsPage,
-    NestedFramesPage,
-)
+from pages.alerts_frame_windows_page import *
 
 
 @allure.severity(allure.severity_level.BLOCKER)
