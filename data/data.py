@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class Person:
     full_name: str = None
@@ -13,9 +14,11 @@ class Person:
     permanent_address: str = None
     mobile: str = None
 
+
 @dataclass
 class Color:
     color_name: list = None
+
 
 @dataclass
 class Date:

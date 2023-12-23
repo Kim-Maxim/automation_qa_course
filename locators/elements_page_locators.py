@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
-class TextBoxPageLocators:
 
+class TextBoxPageLocators:
     FULL_NAME = (By.CSS_SELECTOR, "input[id='userName']")
     EMAIL = (By.CSS_SELECTOR, "input[id='userEmail']")
     CURRENT_ADDRESS = (By.CSS_SELECTOR, "textarea[id='currentAddress']")
@@ -13,23 +13,23 @@ class TextBoxPageLocators:
     CREATED_CURRENT_ADDRESS = (By.CSS_SELECTOR, "#output #currentAddress")
     CREATED_PERMANENT_ADDRESS = (By.CSS_SELECTOR, "#output #permanentAddress")
 
+
 class CheckBoxPageLocators:
-    
     EXPAND_ALL_BUTTON = (By.CSS_SELECTOR, "button[aria-label='Expand all']")
     ITEM_LIST = (By.CSS_SELECTOR, "span[class='rct-title']")
     CHECKED_ITEMS = (By.CSS_SELECTOR, "svg[class='rct-icon rct-icon-check']")
     TITLE_ITEM = ".//ancestor::span[@class='rct-text']"
     OUTPUT_RESULT = (By.CSS_SELECTOR, "span[class='text-success']")
 
-class RadioButtonPageLocators:
 
+class RadioButtonPageLocators:
     YES_RADIO_BUTTON = (By.CSS_SELECTOR, "label[for='yesRadio']")
     IMPRESSIVE_RADIO_BUTTON = (By.CSS_SELECTOR, "label[for='impressiveRadio']")
     NO_RADIO_BUTTON = (By.CSS_SELECTOR, "label[for='noRadio']")
     OUTPUT_RESULT_RADIO_BUTTON = (By.CSS_SELECTOR, "span[class='text-success']")
 
-class WebTablePageLocators:
 
+class WebTablePageLocators:
     # add person info
 
     ADD_BUTTON = (By.CSS_SELECTOR, "button[id='addNewRecordButton']")
@@ -54,13 +54,16 @@ class WebTablePageLocators:
 
     UPDATE_BUTTON = (By.CSS_SELECTOR, "span[title='Edit']")
 
-class ButtonsPageLocators:
 
+class ButtonsPageLocators:
     # buttons
 
     DOUBLE_BUTTON = (By.CSS_SELECTOR, "button[id='doubleClickBtn']")
     RIGHT_CLICK_BUTTON = (By.CSS_SELECTOR, "button[id='rightClickBtn']")
-    CLICK_ME_BUTTON = (By.XPATH, "/html/body/div[2]/div/div/div[2]/div[2]/div[2]/div[3]/button")
+    CLICK_ME_BUTTON = (
+        By.XPATH,
+        "/html/body/div[2]/div/div/div[2]/div[2]/div[2]/div[3]/button",
+    )
 
     # result
 
@@ -68,22 +71,21 @@ class ButtonsPageLocators:
     SUCCESS_RIGHT_CLICK = (By.CSS_SELECTOR, "p[id='rightClickMessage']")
     SUCCESS_CLICK_ME = (By.CSS_SELECTOR, "p[id='dynamicClickMessage']")
 
-class LinksPageLocators:
 
+class LinksPageLocators:
     # links
 
     SIMPLE_LINK = (By.CSS_SELECTOR, "a[id='simpleLink']")
     BAD_REQUEST = (By.CSS_SELECTOR, "a[id='bad-request']")
 
-class UploadAndDownloadPageLocators:
 
+class UploadAndDownloadPageLocators:
     UPLOAD_FILE = (By.CSS_SELECTOR, "input[id='uploadFile']")
     UPLOADED_RESULT = (By.CSS_SELECTOR, "p[id='uploadedFilePath']")
     DOWNLOAD_FILE = (By.CSS_SELECTOR, "a[id='downloadButton']")
 
-class DynamicPropertiesPageLocators:
 
+class DynamicPropertiesPageLocators:
     ENABLE_BUTTON = (By.CSS_SELECTOR, "button[id='enableAfter']")
     COLOR_CHANGE_BUTTON = (By.CSS_SELECTOR, "button[id='colorChange']")
     VISIBLE_AFTER_FIVE_SEC_BUTTON = (By.CSS_SELECTOR, "button[id='visibleAfter']")
-
